@@ -9,3 +9,5 @@ COPY ./requirements /requirements
 RUN pip install -r /requirements/base.txt
 
 COPY . /backend/
+
+EXPOSE 8000
