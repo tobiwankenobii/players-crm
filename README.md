@@ -15,3 +15,15 @@ Create compose containers
 ```powershell
 docker-compose up
 ```
+
+## Environment Variables
+
+| Variable name                 | Value                         |
+|-------------------------------|-------------------------------|
+| POSTGRES_NAME                 |                               |
+| POSTGRES_USER                 |                               |
+| POSTGRES_PASSWORD             |                               |
+| POSTGRES_HOST                 |                               |
+| POSTGRES_PORT                 |                               |
+| SECRET_KEY                    |                               |
+| DEBUG                         |                               |
