@@ -7,23 +7,31 @@ Built using Django on the Backend and React on the Frontend.
 Setup via docker-compose.
 
 Build compose images
+
 ```powershell
 docker-compose build
 ```
 
 Create compose containers
+
 ```powershell
 docker-compose up
 ```
 
+If migrations needed
+
+```powershell
+docker-compose exec backend python manage.py migrate
+```
+
 ## Environment Variables
 
-| Variable name                 | Value                         |
-|-------------------------------|-------------------------------|
-| POSTGRES_NAME                 |                               |
-| POSTGRES_USER                 |                               |
-| POSTGRES_PASSWORD             |                               |
-| POSTGRES_HOST                 |                               |
-| POSTGRES_PORT                 |                               |
-| SECRET_KEY                    |                               |
-| DEBUG                         |                               |
+| Variable name     | Value |
+| ----------------- | ----- |
+| POSTGRES_NAME     |       |
+| POSTGRES_USER     |       |
+| POSTGRES_PASSWORD |       |
+| POSTGRES_HOST     |       |
+| POSTGRES_PORT     |       |
+| SECRET_KEY        |       |
+| DEBUG             |       |
