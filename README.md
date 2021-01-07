@@ -6,6 +6,10 @@ Built using Django on the Backend and React on the Frontend.
 <br>
 Setup via docker-compose.
 
+```powershell
+work-in --progress
+```
+
 Build compose images
 
 ```powershell
