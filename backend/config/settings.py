@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-from os import environ
+import os
+
+env = os.environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = environ.get('SECRET_KEY')
+SECRET_KEY = env.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = environ.get('DEBUG', False)
+DEBUG = env.get('DEBUG', False)
 
-ALLOWED_HOSTS = environ.get('ALLOWED_HOSTS', ['*'])
+ALLOWED_HOSTS = env.get('ALLOWED_HOSTS', ['*'])
 
 
 # Application definition
@@ -85,11 +87,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': environ.get("POSTGRES_NAME"),
-        'USER': environ.get("POSTGRES_USER"),
-        'PASSWORD': environ.get("POSTGRES_PASSWORD"),
-        'HOST': environ.get("POSTGRES_HOST"),
-        'PORT': environ.get("POSTGRES_PORT"),
+        'NAME': env.get("POSTGRES_NAME"),
+        'USER': env.get("POSTGRES_USER"),
+        'PASSWORD': env.get("POSTGRES_PASSWORD"),
+        'HOST': env.get("POSTGRES_HOST"),
+        'PORT': env.get("POSTGRES_PORT"),
     }
 }
 
@@ -131,3 +133,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIR = [
+   os.path.join(BASE_DIR, 'static')
+]

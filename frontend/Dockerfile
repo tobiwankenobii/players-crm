@@ -8,4 +8,4 @@ RUN yarn install
 
 COPY . /frontend
 
-CMD echo "Welcome"
+CMD yarn start
