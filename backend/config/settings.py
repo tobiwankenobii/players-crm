@@ -30,7 +30,6 @@ DEBUG = env.get("DEBUG", False)
 
 ALLOWED_HOSTS = env.get("ALLOWED_HOSTS", ["*"])
 
-
 # Application definition
 DJANGO_APPS = [
     "django.contrib.admin",
