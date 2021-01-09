@@ -14,8 +14,6 @@ services:
 
     frontend:
         build: ./frontend
-        volumes:
-            - ./frontend:/frontend
         ports:
             - 3000:3000
 
