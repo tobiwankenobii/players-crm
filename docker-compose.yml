@@ -41,6 +41,35 @@ services:
         networks:
             - app_net
 
+    redis:
+        image: redis:alpine
+
+    celery:
+        build: ./backend
+        env_file: ./.env
+        command: celery -A config worker -l info
+        volumes:
+            - ./backend/:/usr/src/backend/
+        environment:
+            - DEBUG=${DEBUG}
+            - SECRET_KEY=${SECRET_KEY}
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+        depends_on:
+            - redis
+
+    celery-beat:
+        build: ./backend
+        env_file: ./.env
+        command: celery -A config beat -l info
+        volumes:
+            - ./backend/:/usr/src/backend/
+        environment:
+            - DEBUG=${DEBUG}
+            - SECRET_KEY=${SECRET_KEY}
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+        depends_on:
+            - redis
+
 volumes:
     db_data:
     static_data:

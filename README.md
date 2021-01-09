@@ -68,3 +68,4 @@ Example file `dev.env` is in the root of the repo.
 | POSTGRES_PORT     |       |
 | SECRET_KEY        |       |
 | DEBUG             |       |
+| DISCORD_TOKEN     |       |
