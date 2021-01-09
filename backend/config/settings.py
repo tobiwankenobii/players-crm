@@ -134,3 +134,8 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 STATICFILES_DIR = [os.path.join(BASE_DIR, "static")]
+
+
+# DRF Configuration
+
+REST_FRAMEWORK = {"DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",)}
