@@ -43,7 +43,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = ["rest_framework"]
 
-LOCAL_APPS = ["users"]
+LOCAL_APPS = ["users", "dashboards"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -149,8 +149,8 @@ CELERY_BROKER_URL = "redis://redis:6379"
 CELERY_RESULT_BACKEND = "redis://redis:6379"
 
 CELERY_BEAT_SCHEDULE = {
-    "sample_task": {
-        "task": "users.tasks.sample_task",
+    "recalculate_server_data": {
+        "task": "dashboards.tasks.recalculate_server_data",
         "schedule": crontab(minute="*/1"),
     },
 }
