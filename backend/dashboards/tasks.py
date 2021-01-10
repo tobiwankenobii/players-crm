@@ -1,5 +1,5 @@
 from celery import shared_task
-
+from django.db import transaction
 from utils import DiscordBot, DiscordDataConverter
 
 
@@ -9,5 +9,7 @@ def recalculate_server_data():
     bot = DiscordBot()
     bot.fetch_data()
     converter = DiscordDataConverter
-    converter.convert_members(bot.members)
-    converter.convert_channels(bot.channels)
+    with transaction.atomic():
+        members_stats = converter.convert_members(list(bot.members))
+        channels_stats = converter.convert_channels(list(bot.channels))
+        converter.create_server_stats(members_stats, channels_stats)

@@ -1,7 +1,6 @@
 import asyncio
 import discord
 from os import environ
-import time
 
 
 class DiscordBot:
