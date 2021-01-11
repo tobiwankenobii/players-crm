@@ -1,5 +1,5 @@
-Start the frontend
+Start the React App
 
-```powershell
+```
 yarn start
 ```
