@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container } from 'react-bootstrap';
 import { BrowserRouter, Route } from 'react-router-dom';
 import LoginView from './views/auth/LoginView';
+import HomeView from './views/home/HomeView';
+import LandingView from './views/home/LandingView';
 
-export default class App extends Component {
-    render() {
-        return (
-            <BrowserRouter>
-                <Container>
-                    <Route path="/login" component={LoginView} exact />
-                </Container>
-            </BrowserRouter>
-        );
-    }
-}
+const App = () => {
+    return (
+        <BrowserRouter>
+            <Container>
+                <Route path="/" component={LandingView} exact />
+                <Route path="/login" component={LoginView} />
+                <Route path="/home" component={HomeView} />
+            </Container>
+        </BrowserRouter>
+    );
+};
+
+export default App;
