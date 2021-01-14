@@ -6,6 +6,8 @@ services:
         env_file: ./.env
         depends_on:
             - db
+            - celery
+            - celery-beat
         volumes:
             - static_data:/backend/static
         networks:
@@ -43,6 +45,8 @@ services:
 
     redis:
         image: redis:alpine
+        networks:
+            - db_net
 
     celery:
         build: ./backend
@@ -56,6 +60,9 @@ services:
             - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
         depends_on:
             - redis
+            - db
+        networks:
+            - db_net
 
     celery-beat:
         build: ./backend
@@ -69,6 +76,9 @@ services:
             - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
         depends_on:
             - redis
+            - db
+        networks:
+            - db_net
 
 volumes:
     db_data:

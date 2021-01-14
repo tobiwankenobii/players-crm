@@ -27,6 +27,7 @@ There are also few extra targets, that could be implemented if my Bechelor Thesi
 
 -   data forecasts (yes, data science everywhere)
 -   more advanced communication (e.g. a message system)
+-   files exporting (especially xlsx)
 -   all these other features I don't remember now
 
 ## Getting started
