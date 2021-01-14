@@ -17,7 +17,8 @@ const userInfoFromStorage = _cachedUserInfo
 // * Initial State
 interface UserInfo {
     username: string;
-    password: string;
+    refresh: string;
+    access: string;
 }
 export interface State {
     userLogin: { userInfo: UserInfo; error: any };

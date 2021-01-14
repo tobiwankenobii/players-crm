@@ -9,20 +9,14 @@ import {
     Card,
     Alert,
 } from 'react-bootstrap';
-import { Location, History } from 'history';
 import { State } from '../../store';
 import { login } from '../../actions/auth/userActions';
+import { Link, useHistory } from 'react-router-dom';
 
-interface IProps {
-    location: Location;
-    history: History;
-}
-
-const LoginView: React.FC<IProps> = ({ location, history }) => {
+const LoginView = () => {
+    const history = useHistory();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-    const redirect = location.search ? location.search.split('=')[1] : '/home';
 
     const dispatch = useDispatch();
 
@@ -30,9 +24,9 @@ const LoginView: React.FC<IProps> = ({ location, history }) => {
 
     useEffect(() => {
         if (userInfo) {
-            history.push(redirect);
+            history.push('/home');
         }
-    }, [history, userInfo, redirect]);
+    }, [history, userInfo]);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -44,13 +38,13 @@ const LoginView: React.FC<IProps> = ({ location, history }) => {
             <Row className="min-vh-100 justify-content-center align-items-center">
                 <Col xs={10} md={6} lg={4}>
                     {error && (
-                        <Alert key={error} variant="danger">
-                            {error}
+                        <Alert key="error" variant="danger text-center">
+                            <h5 className="text-dark">{error}</h5>
                         </Alert>
                     )}
-                    <Card>
+                    <Card className="bg-dark text-white">
                         <Card.Header>
-                            <h4>Sign In</h4>
+                            <h4 className="text-white">Sign In</h4>
                         </Card.Header>
                         <Card.Body>
                             <Form onSubmit={handleSubmit}>
@@ -81,11 +75,16 @@ const LoginView: React.FC<IProps> = ({ location, history }) => {
                                     ></Form.Control>
                                 </Form.Group>
 
-                                <Button type="submit" variant="success" block>
+                                <Button type="submit" variant="info" block>
                                     Sign in
                                 </Button>
                             </Form>
                         </Card.Body>
+                        <Card.Footer className="text-center">
+                            <Link className="text-muted" to="/">
+                                Go Back
+                            </Link>
+                        </Card.Footer>
                     </Card>
                 </Col>
             </Row>

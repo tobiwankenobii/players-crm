@@ -45,6 +45,8 @@ services:
 
     redis:
         image: redis:alpine
+        networks:
+            - db_net
 
     celery:
         build: ./backend
@@ -59,6 +61,8 @@ services:
         depends_on:
             - redis
             - db
+        networks:
+            - db_net
 
     celery-beat:
         build: ./backend
@@ -73,6 +77,8 @@ services:
         depends_on:
             - redis
             - db
+        networks:
+            - db_net
 
 volumes:
     db_data:

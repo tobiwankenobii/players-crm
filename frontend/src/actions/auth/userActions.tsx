@@ -20,21 +20,21 @@ export const login = (username: string, password: string) => async (
             port: 8080,
         };
 
-        const { data } = await apiService.post(
+        let { data } = await apiService.post(
             '/api/token/',
             { username, password },
             config
         );
+        data = { ...data, username };
 
         dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 
         localStorage.setItem('userInfo', JSON.stringify(data));
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: USER_LOGIN_FAIL,
             payload:
-                error.response.data.message ||
+                error.response.data.detail ||
                 error.response.statusText ||
                 error.response,
         });
