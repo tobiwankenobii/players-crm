@@ -10,6 +10,6 @@ def recalculate_server_data():
     bot.fetch_data()
     converter = DiscordDataConverter
     with transaction.atomic():
-        members_stats = converter.convert_members(list(bot.members))
-        channels_stats = converter.convert_channels(list(bot.channels))
+        members_stats = converter.convert_members(bot.members)
+        channels_stats = converter.convert_channels(bot.channels)
         converter.create_server_stats(members_stats, channels_stats)

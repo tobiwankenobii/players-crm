@@ -8,6 +8,9 @@ class DiscordBot:
     Class for fetching data from Discord server
     """
 
+    members: list
+    channels: list
+
     def __init__(self):
         self.intents = discord.Intents.default()
         self.intents.members = True
@@ -18,8 +21,8 @@ class DiscordBot:
 
         @client.event
         async def on_ready():
-            self.members = client.get_all_members()
-            self.channels = client.get_all_channels()
+            self.members = list(client.get_all_members())
+            self.channels = list(client.get_all_channels())
             await client.close()
 
         loop = asyncio.get_event_loop()
