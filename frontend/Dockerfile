@@ -1,11 +1,11 @@
 FROM node:14
 
-WORKDIR /frontend
+WORKDIR /app
 
-COPY package.json yarn.lock /frontend/
+COPY package.json yarn.lock /app/
 
 RUN yarn install
 
-COPY . /frontend
+COPY . /app
 
 CMD yarn start

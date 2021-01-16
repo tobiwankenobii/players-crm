@@ -50,10 +50,11 @@ Create compose containers
 docker-compose up
 ```
 
-If migrations needed
+If migrations or admin needed
 
 ```powershell
-docker-compose exec backend python manage.py migrate
+docker-compose exec django python manage.py migrate
+docker-compose exec django python manage.py createsuperuser
 ```
 
 ## Environment Variables
