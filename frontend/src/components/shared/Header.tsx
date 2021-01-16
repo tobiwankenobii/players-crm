@@ -23,7 +23,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar variant="dark" bg="dark">
+        <Navbar variant="dark" bg="dark" className="mb-5">
             <LinkContainer to="/home">
                 <Navbar.Brand>
                     <Badge variant="secondary" style={{ fontSize: '1.25rem' }}>

@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { userLoginReducer } from './reducers/auth/userReducers';
+import { statsReducer } from './reducers/stats/statsReducers';
 
 // * Reducers
 const reducer = combineReducers({
     userLogin: userLoginReducer,
+    stats: statsReducer,
 });
 
 // * Cached Values

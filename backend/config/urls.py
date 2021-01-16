@@ -20,6 +20,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 from users.api.urls import urlpatterns as users_patterns
+from dashboards.api.urls import urlpatterns as dashboards_patterns
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,3 +30,4 @@ urlpatterns = [
 ]
 
 urlpatterns += users_patterns
+urlpatterns += dashboards_patterns

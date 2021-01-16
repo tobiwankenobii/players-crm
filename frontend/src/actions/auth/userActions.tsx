@@ -20,7 +20,7 @@ export const login = (username: string, password: string) => async (
             port: 8080,
         };
 
-        let { data } = await apiService.post(
+        let { data } = await apiService().post(
             '/api/token/',
             { username, password },
             config
