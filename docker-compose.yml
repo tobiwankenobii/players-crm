@@ -20,7 +20,9 @@ services:
 
     react:
         container_name: players_crm_react
-        build: ./frontend
+        build:
+            context: ./frontend
+            dockerfile: ./Dockerfile
         volumes:
             - ./frontend:/app
         ports:
